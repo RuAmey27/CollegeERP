@@ -87,7 +87,8 @@ celerybeat-schedule
 venv/
 ENV/
 .vscode
-
+.myenv
+myenv/
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -117,3 +118,4 @@ media/
 # **/migrations/**
 # !**/migrations
 # !**/migrations/__init__.py
+.vercel
