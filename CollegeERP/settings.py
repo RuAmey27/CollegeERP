@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 import os
-
+import dj_database_url
 from pathlib import Path
 
 
@@ -86,17 +86,20 @@ WSGI_APPLICATION = 'CollegeERP.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }    # this is for the local 
-
-    # 'default': dj_database_url.config(
-    #     default=os.getenv("VERCEL_POSTGRES_URL"),  # Use environment variable for DB URL
-    #     conn_max_age=600,  # Connection pooling for serverless architecture
-    #     ssl_require=True,  # Require SSL for secure connections
-    # )
+    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }    # this is for the local 
+
+#     # 'default': dj_database_url.config(
+#     #     default=os.getenv("VERCEL_POSTGRES_URL"),  # Use environment variable for DB URL
+#     #     conn_max_age=600,  # Connection pooling for serverless architecture
+#     #     ssl_require=True,  # Require SSL for secure connections
+#     # )
+# }
 
 
 # Password validation
